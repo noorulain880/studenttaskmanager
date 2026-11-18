@@ -6,12 +6,17 @@ class TaskManager:
         self.next_id = 1
 
     def add_task(self, title):
-        if not title.strip():
+        if not isinstance(title, str):
+            raise ValueError("Task title must be text.")
+
+        title = title.strip()
+
+        if not title:
             raise ValueError("Task title cannot be empty.")
 
         task = {
             "id": self.next_id,
-            "title": title.strip(),
+            "title": title,
             "completed": False
         }
 

@@ -15,11 +15,13 @@ while True:
 
     if choice == "1":
         title = input("Enter task title: ")
+
         try:
             task = manager.add_task(title)
             print("Task added successfully! ID:", task["id"])
+
         except ValueError as error:
-            print(error)
+            print("Error:", error)
 
     elif choice == "2":
         tasks = manager.display_tasks()
@@ -34,25 +36,27 @@ while True:
                     "-", status
                 )
 
-    elif choice == "3":
+     elif choice == "3":
         try:
-          task_id = int(input("Enter task ID: "))
+            task_id = int(input("Enter task ID: "))
 
-          if manager.complete_task(task_id):
-            print("Task completed successfully!")
-          else:
-            print("Task ID is invalid or task is already completed.")
+            if manager.complete_task(task_id):
+                print("Task completed successfully!")
+            else:
+                print("Task ID is invalid or task is already completed.")
 
         except ValueError:
-          print("Please enter a valid number.")
+            print("Please enter a valid number.")
 
     elif choice == "4":
         try:
             task_id = int(input("Enter task ID: "))
+
             if manager.delete_task(task_id):
                 print("Task deleted successfully!")
             else:
                 print("Invalid task ID.")
+
         except ValueError:
             print("Please enter a valid number.")
 
