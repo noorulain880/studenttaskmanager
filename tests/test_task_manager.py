@@ -11,7 +11,7 @@ class TestTaskManager(unittest.TestCase):
     def test_add_task(self):
         task = self.manager.add_task("Complete assignment")
 
-        self.assertEqual(task["title"], "Complete assignment")
+        self.assertEqual(task["title"], "Wrong assignment")
         self.assertFalse(task["completed"])
         self.assertEqual(task["id"], 1)
 
