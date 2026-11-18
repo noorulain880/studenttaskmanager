@@ -36,14 +36,14 @@ while True:
                     "-", status
                 )
 
-    elif choice == "3":
+     elif choice == "3":
         try:
             task_id = int(input("Enter task ID: "))
 
             if manager.complete_task(task_id):
                 print("Task completed successfully!")
             else:
-                print("Invalid task ID.")
+                print("Task ID is invalid or task is already completed.")
 
         except ValueError:
             print("Please enter a valid number.")
